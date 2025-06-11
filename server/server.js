@@ -7,7 +7,6 @@ dotenv.config();
 import connectDB from './configs/db.js';
 import userRouter from './routes/userRoutes.js';
 import sellerRouter from './routes/sellerRoutes.js';
-import cloudinary from './configs/cloudinary.js'; 
 import productRouter from './routes/productRoutes.js';
 import cartRouter from './routes/cartRoutes.js';
 import addressRouter from './routes/addressRoutes.js';
@@ -27,7 +26,7 @@ const allowedOrigins = ['http://localhost:5173', 'https://greencart-frontend-six
 app.post("/stripe", express.raw({type: 'application/json'}), stripeWebhooks)
 
 // Middleware Configuration
-app.use(express.json());
+app.use(express.json()); 
 app.use(cookieParser()); 
 app.use(cors({origin: allowedOrigins, credentials: true}));
 
